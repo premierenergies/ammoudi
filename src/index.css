@@ -8,6 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    /* Core semantic tokens */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -17,42 +18,78 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 200 100% 35%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 350 75% 65%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 200 100% 35%;
 
-    --radius: 0.5rem;
+    --radius: 12px;
 
-    --sidebar-background: 0 0% 98%;
+    /* Mykonos Paradise Color Palette */
+    /* Aegean Blue - Primary palette */
+    --aegean-50: 200 100% 97%;
+    --aegean-100: 200 85% 92%;
+    --aegean-200: 200 70% 84%;
+    --aegean-300: 200 65% 72%;
+    --aegean-400: 200 70% 58%;
+    --aegean-500: 200 100% 45%;
+    --aegean-600: 200 100% 35%;
+    --aegean-700: 200 85% 28%;
+    --aegean-800: 200 70% 22%;
+    --aegean-900: 200 55% 16%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Bougainvillea Pink - Accent palette */
+    --bougainvillea-50: 350 100% 97%;
+    --bougainvillea-100: 350 85% 92%;
+    --bougainvillea-200: 350 80% 85%;
+    --bougainvillea-300: 350 75% 75%;
+    --bougainvillea-400: 350 75% 65%;
+    --bougainvillea-500: 350 70% 55%;
+    --bougainvillea-600: 350 65% 45%;
+    --bougainvillea-700: 350 60% 38%;
+    --bougainvillea-800: 350 55% 30%;
+    --bougainvillea-900: 350 45% 22%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Golden Sunset - Warm accents */
+    --sunset-50: 40 100% 97%;
+    --sunset-100: 40 95% 90%;
+    --sunset-200: 40 90% 82%;
+    --sunset-300: 40 85% 72%;
+    --sunset-400: 40 80% 62%;
+    --sunset-500: 40 75% 52%;
+    --sunset-600: 40 70% 45%;
+    --sunset-700: 40 65% 38%;
+    --sunset-800: 40 60% 30%;
+    --sunset-900: 40 50% 22%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Gradients */
+    --gradient-aegean: linear-gradient(135deg, hsl(var(--aegean-400)), hsl(var(--aegean-600)));
+    --gradient-sunset: linear-gradient(135deg, hsl(var(--sunset-400)), hsl(var(--bougainvillea-400)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--aegean-600)), hsl(var(--aegean-400)));
+    --gradient-overlay: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(var(--aegean-500) / 0.1);
+    --shadow-floating: 0 10px 40px -8px hsl(var(--aegean-600) / 0.15);
+    --shadow-glow: 0 0 30px hsl(var(--bougainvillea-400) / 0.3);
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
@@ -100,6 +137,160 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Hero Section Utilities */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .text-gradient-aegean {
+    background: var(--gradient-aegean);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .shadow-floating {
+    box-shadow: var(--shadow-floating);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Animation Classes */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-floating);
+  }
+
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Room Card Hover */
+  .room-card {
+    transition: var(--transition-smooth);
+    overflow: hidden;
+  }
+
+  .room-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-floating);
+  }
+
+  .room-card:hover .room-image {
+    transform: scale(1.05);
+  }
+
+  .room-image {
+    transition: var(--transition-smooth);
+  }
+
+  /* Button Variants */
+  .btn-hero {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 shadow-soft hover:shadow-glow;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft;
+    transition: var(--transition-smooth);
+  }
+}
+
+@layer utilities {
+  /* Custom Keyframes */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+  }
+
+  /* Responsive Text Sizes */
+  .text-hero {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .text-section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
 }

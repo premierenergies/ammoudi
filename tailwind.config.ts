@@ -52,16 +52,47 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				// Mykonos Paradise Theme Colors
+				aegean: {
+					50: 'hsl(var(--aegean-50))',
+					100: 'hsl(var(--aegean-100))',
+					200: 'hsl(var(--aegean-200))',
+					300: 'hsl(var(--aegean-300))',
+					400: 'hsl(var(--aegean-400))',
+					500: 'hsl(var(--aegean-500))',
+					600: 'hsl(var(--aegean-600))',
+					700: 'hsl(var(--aegean-700))',
+					800: 'hsl(var(--aegean-800))',
+					900: 'hsl(var(--aegean-900))'
+				},
+				bougainvillea: {
+					50: 'hsl(var(--bougainvillea-50))',
+					100: 'hsl(var(--bougainvillea-100))',
+					200: 'hsl(var(--bougainvillea-200))',
+					300: 'hsl(var(--bougainvillea-300))',
+					400: 'hsl(var(--bougainvillea-400))',
+					500: 'hsl(var(--bougainvillea-500))',
+					600: 'hsl(var(--bougainvillea-600))',
+					700: 'hsl(var(--bougainvillea-700))',
+					800: 'hsl(var(--bougainvillea-800))',
+					900: 'hsl(var(--bougainvillea-900))'
+				},
+				sunset: {
+					50: 'hsl(var(--sunset-50))',
+					100: 'hsl(var(--sunset-100))',
+					200: 'hsl(var(--sunset-200))',
+					300: 'hsl(var(--sunset-300))',
+					400: 'hsl(var(--sunset-400))',
+					500: 'hsl(var(--sunset-500))',
+					600: 'hsl(var(--sunset-600))',
+					700: 'hsl(var(--sunset-700))',
+					800: 'hsl(var(--sunset-800))',
+					900: 'hsl(var(--sunset-900))'
 				}
+			},
+			fontFamily: {
+				playfair: ['Playfair Display', 'serif'],
+				inter: ['Inter', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
