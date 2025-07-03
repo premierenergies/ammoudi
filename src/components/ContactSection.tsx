@@ -79,11 +79,11 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-secondary/30 to-background">
+    <section id="contact" className="py-32 bg-gradient-to-b from-secondary/30 to-background dark:from-secondary/10 dark:to-background">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-section-title font-playfair font-bold text-primary mb-4">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl md:text-6xl font-playfair font-bold text-primary mb-6">
             Book Your Stay
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -93,9 +93,9 @@ export const ContactSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="shadow-floating hover:shadow-glow transition-all duration-300">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-playfair font-semibold text-primary mb-6">
+          <Card className="shadow-2xl hover:shadow-2xl border border-border/50 bg-card/50 dark:bg-card/80 backdrop-blur-xl transition-all duration-300">
+            <CardContent className="p-10">
+              <h3 className="text-3xl font-playfair font-semibold text-primary mb-8">
                 Reservation Request
               </h3>
               

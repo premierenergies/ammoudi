@@ -25,9 +25,9 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary text-white">
-      <div className="container mx-auto px-4 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-primary dark:bg-card text-white dark:text-foreground border-t border-border/50">
+      <div className="container mx-auto px-4 lg:px-8 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand Column */}
           <div className="space-y-4">
             <h3 className="text-2xl font-playfair font-bold">Paradise Mykonos</h3>

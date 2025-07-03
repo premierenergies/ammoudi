@@ -57,10 +57,10 @@ export const HeroSection = () => {
           className="opacity-0 mb-6"
           style={{ animationDelay: "0.2s" }}
         >
-          <h1 className="text-hero font-playfair font-bold mb-4 text-gradient-aegean">
+          <h1 className="text-hero font-playfair font-bold mb-4 text-white drop-shadow-2xl">
             Paradise in Mykonos
           </h1>
-          <p className="text-xl md:text-2xl font-light mb-2">
+          <p className="text-xl md:text-2xl font-light mb-2 text-white/90 drop-shadow-lg">
             Where Aegean Dreams Come True
           </p>
         </div>
@@ -70,7 +70,7 @@ export const HeroSection = () => {
           className="opacity-0 mb-8"
           style={{ animationDelay: "0.6s" }}
         >
-          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed text-white/85 drop-shadow-lg">
             Experience luxury redefined in our boutique hotel, where Cycladic elegance meets modern comfort 
             just steps away from Paradise Beach.
           </p>
@@ -82,7 +82,7 @@ export const HeroSection = () => {
         >
           <Button 
             size="lg" 
-            className="btn-hero px-8 py-3 text-lg font-medium"
+            className="bg-accent hover:bg-accent/90 text-white px-8 py-3 text-lg font-medium shadow-2xl hover:shadow-accent/30 transition-all duration-300"
             onClick={() => document.getElementById("rooms")?.scrollIntoView({ behavior: "smooth" })}
           >
             Explore Rooms
@@ -90,7 +90,7 @@ export const HeroSection = () => {
           <Button 
             variant="outline" 
             size="lg" 
-            className="px-8 py-3 text-lg font-medium bg-white/10 text-white border-white/30 hover:bg-white/20 backdrop-blur-sm"
+            className="px-8 py-3 text-lg font-medium bg-white/10 text-white border-white/30 hover:bg-white/20 backdrop-blur-sm shadow-xl transition-all duration-300"
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
           >
             Book Your Stay

@@ -65,7 +65,7 @@ export const AboutSection = () => {
   };
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 relative overflow-hidden">
+    <section id="about" ref={sectionRef} className="py-32 relative overflow-hidden">
       {/* Background with Parallax Effect */}
       <div 
         className="absolute inset-0 z-0"
@@ -76,7 +76,7 @@ export const AboutSection = () => {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80 dark:from-black/90 dark:via-black/70 dark:to-black/90"></div>
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
