@@ -116,7 +116,7 @@ export const AboutSection = () => {
           alt="Paros Hotel Background"
           className="w-full h-full object-cover transform scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/80 to-accent/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/75 to-black/85"></div>
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
