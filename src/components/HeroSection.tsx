@@ -58,10 +58,10 @@ export const HeroSection = () => {
           style={{ animationDelay: "0.2s" }}
         >
           <h1 className="text-hero font-playfair font-bold mb-4 text-white drop-shadow-2xl">
-            Paradise in Mykonos
+            Paradise in Paros
           </h1>
           <p className="text-xl md:text-2xl font-light mb-2 text-white/90 drop-shadow-lg">
-            Where Aegean Dreams Come True
+            The Hidden Gem of the Aegean
           </p>
         </div>
 

@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import roomCycladic from "@/assets/room-cycladic-suite.jpg";
 import roomAegean from "@/assets/room-aegean-view.jpg";
 import roomParadise from "@/assets/room-paradise-suite.jpg";
@@ -10,8 +11,8 @@ const rooms = [
   {
     id: 1,
     title: "Cycladic Suite",
-    description: "Traditional Cycladic architecture meets modern luxury with stunning sea views and private terrace. Experience the authentic charm of Mykonos while enjoying contemporary amenities.",
-    image: roomCycladic,
+    description: "Traditional Cycladic architecture meets modern luxury with stunning sea views and private terrace. Experience the authentic charm of Paros while enjoying contemporary amenities.",
+    images: [roomCycladic, roomAegean, roomParadise],
     amenities: ["Sea View", "Private Terrace", "King Bed", "Marble Bathroom", "Mini Bar", "WiFi"],
     price: "€280",
     size: "45m²",
@@ -22,7 +23,7 @@ const rooms = [
     id: 2,
     title: "Aegean View Room",
     description: "Elegant room with panoramic Aegean Sea views and contemporary Cycladic design. Perfect for couples seeking a romantic getaway with breathtaking vistas.",
-    image: roomAegean,
+    images: [roomAegean, roomParadise, roomCycladic],
     amenities: ["Sea View", "Balcony", "Queen Bed", "Air Conditioning", "Safe", "WiFi"],
     price: "€220",
     size: "35m²",
@@ -33,7 +34,7 @@ const rooms = [
     id: 3,
     title: "Paradise Suite",
     description: "Our signature suite offering the ultimate luxury experience with infinity pool access. Indulge in unparalleled comfort and exclusive amenities.",
-    image: roomParadise,
+    images: [roomParadise, roomCycladic, roomAegean],
     amenities: ["Pool Access", "Sea View", "King Bed", "Living Area", "Jacuzzi", "Butler Service"],
     price: "€450",
     size: "65m²",
@@ -44,11 +45,55 @@ const rooms = [
     id: 4,
     title: "Sunset Terrace Room",
     description: "Perfect for romantic getaways with west-facing terrace offering spectacular sunsets over the Aegean Sea. Watch the sky transform into a canvas of colors.",
-    image: roomCycladic,
+    images: [roomCycladic, roomParadise, roomAegean],
     amenities: ["Sunset View", "Private Terrace", "Queen Bed", "Seating Area", "Mini Bar", "WiFi"],
     price: "€260",
     size: "40m²",
     guests: "2",
+    featured: false
+  },
+  {
+    id: 5,
+    title: "Ocean Breeze Villa",
+    description: "Spacious villa with panoramic ocean views and private infinity pool. Perfect for families or groups seeking ultimate privacy and luxury.",
+    images: [roomParadise, roomAegean, roomCycladic],
+    amenities: ["Private Pool", "Ocean View", "3 Bedrooms", "Kitchen", "Garden", "BBQ Area"],
+    price: "€650",
+    size: "120m²",
+    guests: "6-8",
+    featured: true
+  },
+  {
+    id: 6,
+    title: "Garden Retreat",
+    description: "Peaceful retreat surrounded by Mediterranean gardens with mountain views. Ideal for those seeking tranquility and connection with nature.",
+    images: [roomCycladic, roomAegean, roomParadise],
+    amenities: ["Garden View", "Mountain View", "Patio", "Queen Bed", "Fireplace", "WiFi"],
+    price: "€190",
+    size: "30m²",
+    guests: "2",
+    featured: false
+  },
+  {
+    id: 7,
+    title: "Honeymoon Sanctuary",
+    description: "Romantic sanctuary designed for couples with private jacuzzi and champagne terrace. Experience intimacy and luxury in perfect harmony.",
+    images: [roomAegean, roomParadise, roomCycladic],
+    amenities: ["Private Jacuzzi", "Champagne Terrace", "King Bed", "Romantic Lighting", "Butler Service", "Spa Access"],
+    price: "€380",
+    size: "50m²",
+    guests: "2",
+    featured: true
+  },
+  {
+    id: 8,
+    title: "Traditional Stone House",
+    description: "Authentic Cycladic stone house with modern amenities. Experience traditional island living with all the comforts of contemporary luxury.",
+    images: [roomParadise, roomCycladic, roomAegean],
+    amenities: ["Stone Architecture", "Traditional Design", "2 Bedrooms", "Kitchen", "Courtyard", "WiFi"],
+    price: "€320",
+    size: "75m²",
+    guests: "4",
     featured: false
   }
 ];
@@ -93,7 +138,7 @@ export const RoomShowcase = () => {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-playfair font-bold text-primary mb-6">
-            Exquisite Accommodations
+            Discover Paradise
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Choose from our collection of unique rooms and suites, each thoughtfully designed 
@@ -110,19 +155,29 @@ export const RoomShowcase = () => {
               className="opacity-0 group cursor-pointer bg-card/50 dark:bg-card/80 backdrop-blur-xl border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 overflow-hidden"
             >
               <CardContent className="p-0">
-                {/* Room Image with Overlay */}
+                {/* Room Image Carousel */}
                 <div className="relative h-80 lg:h-96 overflow-hidden">
-                  <img
-                    src={room.image}
-                    alt={room.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                  <Carousel className="w-full h-full">
+                    <CarouselContent>
+                      {room.images.map((image, imageIndex) => (
+                        <CarouselItem key={imageIndex}>
+                          <img
+                            src={image}
+                            alt={`${room.title} - ${imageIndex + 1}`}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 border-white/30 text-white" />
+                    <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 border-white/30 text-white" />
+                  </Carousel>
                   
                   {/* Image Overlay with Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   {/* Floating Badges */}
-                  <div className="absolute top-6 left-6 flex flex-wrap gap-2">
+                  <div className="absolute top-6 left-6 flex flex-wrap gap-2 z-10">
                     {room.featured && (
                       <Badge className="bg-accent text-white px-3 py-1 shadow-lg">
                         Featured
@@ -134,7 +189,7 @@ export const RoomShowcase = () => {
                   </div>
                   
                   {/* Room Stats on Hover */}
-                  <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                  <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-10">
                     <div className="flex gap-4 text-white">
                       <div className="bg-black/70 backdrop-blur-sm rounded-lg px-3 py-2 text-sm">
                         <div className="font-semibold">{room.size}</div>
@@ -180,12 +235,13 @@ export const RoomShowcase = () => {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Button 
                       className="flex-1 bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                      onClick={() => alert(`Viewing details for ${room.title}`)}
                     >
                       View Details
                     </Button>
                     <Button 
                       variant="outline" 
-                      className="flex-1 border-border hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                      className="flex-1 border-border hover:border-primary hover:bg-primary/5 hover:text-primary transition-all duration-300"
                     >
                       Check Availability
                     </Button>

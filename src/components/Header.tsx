@@ -49,11 +49,11 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className={`text-2xl font-playfair font-bold transition-colors duration-300 ${
-              isScrolled ? "text-primary" : "text-white drop-shadow-lg"
-            }`}>
-              Paradise Mykonos
-            </h1>
+            <img 
+              src="/lovable-uploads/b0aec9fe-ce14-4d55-baf2-6e4db2f42289.png" 
+              alt="Ammoudi Hotel Logo" 
+              className="h-12 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
