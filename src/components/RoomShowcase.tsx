@@ -3,16 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import roomCycladic from "@/assets/room-cycladic-suite.jpg";
 import roomAegean from "@/assets/room-aegean-view.jpg";
 import roomParadise from "@/assets/room-paradise-suite.jpg";
+import roomDeluxeSea from "@/assets/room-deluxe-sea.jpg";
+import roomInfinitySuite from "@/assets/room-infinity-suite.jpg";
+import roomStoneVilla from "@/assets/room-stone-villa.jpg";
 
 const rooms = [
   {
     id: 1,
     title: "Cycladic Suite",
     description: "Traditional Cycladic architecture meets modern luxury with stunning sea views and private terrace. Experience the authentic charm of Paros while enjoying contemporary amenities.",
-    images: [roomCycladic, roomAegean, roomParadise],
+    images: [roomCycladic, roomDeluxeSea, roomInfinitySuite, roomStoneVilla],
     amenities: ["Sea View", "Private Terrace", "King Bed", "Marble Bathroom", "Mini Bar", "WiFi"],
     price: "€280",
     size: "45m²",
@@ -152,7 +156,7 @@ export const RoomShowcase = () => {
             <Card
               key={room.id}
               ref={addToRefs}
-              className="opacity-0 group cursor-pointer bg-card/50 dark:bg-card/80 backdrop-blur-xl border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 overflow-hidden"
+              className="opacity-0 group cursor-pointer bg-card/50 dark:bg-card/80 backdrop-blur-xl border border-border/50 hover:border-primary/30 transition-all duration-700 hover:shadow-2xl hover:shadow-primary/10 overflow-hidden hover:scale-105 hover:-translate-y-2"
             >
               <CardContent className="p-0">
                 {/* Room Image Carousel */}
